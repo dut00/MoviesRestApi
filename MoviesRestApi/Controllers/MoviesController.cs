@@ -17,6 +17,7 @@ namespace MoviesRestApi.Controllers
             _movieData = movieData;
         }
 
+
         // GET api/movies
         [HttpGet]
         public IEnumerable<Movie> Get()
@@ -24,6 +25,8 @@ namespace MoviesRestApi.Controllers
             return _movieData.GetAll();
         }
 
+
+        
         // GET api/movies/5
         [HttpGet("{id}")]
         public Movie Get(int id)
@@ -31,10 +34,19 @@ namespace MoviesRestApi.Controllers
             return _movieData.Get(id);
         }
 
+
         // POST api/movies
         [HttpPost]
+        [AuthorizationTokenFilter]
         public void Post([FromBody] MovieCreateDTO movieDto)
         {
+            var authorized = false;
+
+            if (authorized)
+            {
+
+            }
+
             var movie = new Movie();
 
             movie.Title = movieDto.Title;
@@ -55,6 +67,7 @@ namespace MoviesRestApi.Controllers
 
         // PUT api/movies/5
         [HttpPut("{id}")]
+        [AuthorizationTokenFilter]
         public void Put(int id, [FromBody] MovieCreateDTO movieDto)
         {
             var movie = new Movie();
@@ -69,6 +82,7 @@ namespace MoviesRestApi.Controllers
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
+        [AuthorizationTokenFilter]
         public void Delete(int id)
         {
             _movieData.Delete(id);

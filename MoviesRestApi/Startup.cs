@@ -33,6 +33,8 @@ namespace MoviesRestApi
 
             services.AddScoped<IMovieData, SqlMovieData>();
 
+            //services.AddRouting(options => options.LowercaseUrls = true);
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -42,6 +44,7 @@ namespace MoviesRestApi
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseDatabaseErrorPage();
             }
             else
             {
@@ -50,6 +53,8 @@ namespace MoviesRestApi
             }
 
             app.UseHttpsRedirection();
+            app.UseStaticFiles();
+
             app.UseMvc();
         }
     }

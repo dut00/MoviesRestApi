@@ -1,0 +1,56 @@
+﻿@page
+@model MoviesRestApi.Pages.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="container">
+
+    <h1>REST API</h1>
+
+    <div>
+        <h4>GET <a href="/api/movies">api/movies</a></h4>
+        <p>Zwraca wszystkie elementy.</p>
+    </div>
+
+    <div>
+        <h4>GET <a href="/api/movies/5">api/movies/5</a></h4>
+        <p>Zwraca element o ID równym 5.</p>
+    </div>
+
+    <br />
+    <p><mark>Dla <strong>POST</strong>, <strong>PUT</strong> i <strong>DELETE</strong> wymagany jest token autoryzacyjny.<br />
+        W nagłówku żądania należy zawrzeć dodatkowo "Klucz:Wartość":<br />
+        "<span style="color:red;">Authorization:Basic 1234567890abcDEF</span>"</mark></p>
+
+
+
+    <div>
+        <h4>POST api/movies</h4>
+        <p>Dodaje element. Przykładowe body:</p>
+        <pre>
+            {
+            "title": "Black Mirror: Bandersnatch",
+            "year": 2018
+            }
+        </pre>
+    </div>
+
+    <div>
+        <h4>PUT api/movies/5</h4>
+        <p>Edytuje element o ID równym 5. Przykładowe body:</p>
+        <pre>
+            {
+            "title": "Genesis 2.0",
+            "year": 2018
+            }
+        </pre>
+    </div>
+
+    <div>
+        <h4>DELETE api/movies/5</h4>
+        <p>Usuwa element o ID równym 5.</p>
+    </div>
+
+</div>
